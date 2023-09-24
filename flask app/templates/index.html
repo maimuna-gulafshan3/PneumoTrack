@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Disease Severity Predictor</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+  
+  <h1>Disease Severity Predictor</h1>
+  
+  <form>
+
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" name="age" min="1" max="100"><br>
+    
+    <p>Symptoms:</p>
+    <input type="checkbox" id="fatigue" name="fatigue" value="Fatigue">
+    <label for="fatigue">Fatigue</label><br>
+    
+    <input type="checkbox" id="headache" name="headache" value="Headache">
+    <label for="headache">Headache</label><br>
+    
+    <input type="checkbox" id="chills" name="chills" value="Chills">
+    <label for="chills">Chills</label><br>
+    
+    <input type="checkbox" id="sore_throat" name="sore_throat" value="Sore Throat">
+    <label for="sore_throat">Sore Throat</label><br>
+    
+    <input type="checkbox" id="fever" name="fever" value="Fever">
+    <label for="fever">Fever</label><br>
+    
+    <input type="checkbox" id="shortness_of_breath" name="shortness_of_breath" value="Shortness of Breath">
+    <label for="shortness_of_breath">Shortness of Breath</label><br>
+
+    <input type="checkbox" id="cough" name="cough" value="Cough">
+    <label for="cough">Cough</label><br>
+    
+    <input type="checkbox" id="chest_pain" name="chest_pain" value="Chest Pain">  
+    <label for="chest_pain">Chest Pain</label><br>
+    
+    <button type="button" onclick="predictSeverity()">Predict Severity</button>
+    
+    <p id="result"></p>
+    
+  </form>
+
+  <p>Severity Levels:</p>
+  <p>0 - Low</p> 
+  <p>1 - Moderate</p>
+  <p>2 - High</p>
+
+  <script>
+    function predictSeverity() {
+      // Get input data
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const symptoms = [];
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      checkboxes.forEach(checkbox => {
+        symptoms.push(checkbox.value); 
+      });
+      
+      // Call API to get prediction
+      // For now just return random prediction
+      const severities = [0, 1, 2];
+      const severity = severities[Math.floor(Math.random() * severities.length)];
+      
+      // Display result
+      document.getElementById("result").innerHTML = `Predicted Severity: ${severity}`;
+    }
+  </script>
+
+</body>
+</html>

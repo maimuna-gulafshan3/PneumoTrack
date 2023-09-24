@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>severity.jpg</file>
+    <file>xray.jpg</file>
+    <file>medication.jpeg</file>
+    <file>bg.jpeg</file>
+  </qresource>
+</RCC>

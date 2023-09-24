@@ -1,0 +1,6 @@
+<RCC>
+  <qresource/>
+  <qresource prefix="newPrefix">
+    <file>../../../../Downloads/ideogram.jpeg</file>
+  </qresource>
+</RCC>
